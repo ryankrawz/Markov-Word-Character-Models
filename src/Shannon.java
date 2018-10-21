@@ -30,7 +30,7 @@ public class Shannon {
   public void process() { // YOUR CODE HERE
     String inputText = getInputText();
 
-    Model myModel = ModelC(
+    Model myModel = ModelC(inputText, 1);
 
     // Dummy code that simply sets the output
     // to what was read from the input. Replace
