@@ -1,5 +1,5 @@
 /* file: Main.java
-   author: Bob Muller
+   author: Ryan Krawczyk, Andrew Greenwell
 
    CSCI 1102 Computer Science 2
 

@@ -1,5 +1,5 @@
 /* file: Model.java
-   author: Bob Muller
+   author: Ryan Krawczyk, Andrew Greenwell
 
    CSCI 1102 Computer Science 2
 
@@ -7,5 +7,6 @@
    of C. Shannon's n-gram algorithm for modeling English text.
 */
 public interface Model {
-  // YOUR CODE HERE
+  String generateOutput();
+  String toString();
 }

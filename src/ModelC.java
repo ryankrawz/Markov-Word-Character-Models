@@ -1,5 +1,5 @@
 /* file: ModelC.java
-   author: Bob Muller
+   author: Ryan Krawczyk, Andrew Greenwell
 
    CSCI 1102 Computer Science 2
 
@@ -13,5 +13,20 @@ import java.util.Map;
 import java.util.HashMap;
 
 public class ModelC implements Model {
-  // YOUR CODE HERE
+
+  private String input, output;
+  private int degree;
+
+  public ModelC(String input, int degree) {
+    this.input = input;
+    this.degree = degree;
+    this.output = "";
+  }
+
+  private Map generateMap() { return null; }
+
+  public String generateOutput() { return null; }
+
+  public String toString() { return String.format("%s", this.output); }
+
 }

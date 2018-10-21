@@ -1,5 +1,5 @@
 /* file: Shannon.java
-   author: Bob Muller
+   author: Ryan Krawczyk, Andrew Greenwell
 
    CSCI 1102 Computer Science 2
 
@@ -30,10 +30,12 @@ public class Shannon {
   public void process() { // YOUR CODE HERE
     String inputText = getInputText();
 
+    Model myModel = ModelC(
+
     // Dummy code that simply sets the output
     // to what was read from the input. Replace
     // the next line with your code.
     //
-    setOutputText(inputText);
+    setOutputText();
   }
 }
