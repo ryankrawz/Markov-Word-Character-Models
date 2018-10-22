@@ -35,7 +35,7 @@ import javafx.geometry.Pos;
 
 public class Main extends Application {
 
-  public static final Character SENTINEL = new Character((char) 0);
+  public static final Character SENTINEL = '~';
 
   private final int fontSize = 22;
   private final String style =

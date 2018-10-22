@@ -21,7 +21,6 @@ public class ModelC implements Model {
 
   private String input, output;
   private int degree;
-  private final Character SENTINEL = (char) 0;
 
   public ModelC(String input, int degree) {
     this.input = input;
@@ -31,15 +30,13 @@ public class ModelC implements Model {
 
   private Map generateMap() {
     Map<String, List<Character>> map = new HashMap<String, List<Character>>();
-    for (int i = 0; i + degree < input.length(); i++) {
+    for (int i = 0; i + degree <= input.length(); i++) {
       String substr = input.substring(i, i + degree);
       List<Character> list;
-      if (!map.containsKey(substr)) {
-        list = new ArrayList<Character>();
-        list.add(SENTINEL);
-      }
+      if (!map.containsKey(substr)) list = new ArrayList<Character>();
       else list = map.get(substr);
-      list.add(input.charAt(i + degree));
+      if (i + degree == input.length()) list.add(Main.SENTINEL);
+      else list.add(input.charAt(i + degree));
       map.put(substr, list);
     }
     return map;
@@ -47,15 +44,16 @@ public class ModelC implements Model {
 
   public String generateOutput() {
     Map<String, List<Character>> textMap = generateMap();
-    String[] keys = (String[]) textMap.keySet().toArray();
-    int randKeyIndex = (int) Math.floor(Math.random() * keys.length);
-    output = keys[randKeyIndex];
+    // String[] keys = textMap.keySet().toArray(new String[textMap.size()]);
+    // int randKeyIndex = (int) Math.floor(Math.random() * keys.length);
+    // output = keys[randKeyIndex];
+    output = input.substring(0, degree);
     String substr = output;
     final int LIMIT = (int) Math.round(input.length() * 1.25);
-    while (textMap.containsKey(substr) && output.length() <= LIMIT) {
+    while (textMap.containsKey(substr) /* && output.length() <= LIMIT */) {
       List<Character> charList = textMap.get(substr);
       int randIndex = (int) Math.floor(Math.random() * charList.size());
-      if (charList.get(randIndex) == SENTINEL) break;
+      if (charList.get(randIndex) == Main.SENTINEL) break;
       output += charList.get(randIndex).toString();
       substr = output.substring(output.length() - degree, output.length());
     }
@@ -64,4 +62,10 @@ public class ModelC implements Model {
 
   public String toString() { return String.format("%s", output); }
 
+  public static void main(String[] args) {
+    String inputText = "THIS IS REALLY AMAZING. I WANT TO THANK CONGRESSMAN ALAN WEST. HE IS AN AMAZING GUY. I HAVE BEEN A SUPPORTER OF HIS. HE IS TOUGH, SMART, AND A REAL PATRIOT. ALSO, RICK SCOTT. HE IS DOING A GOOD JOB. IT IS NOT EASY. HE IS DOING A HELLUVA JOB. MY SECOND HOME IS RIGHT DOWN THE ROAD IN YOUR COMPETITIVE COMMUNITY KNOWN AS PALM BEACH. I LOVE FLORIDA. I WOULD LIKE TO THANK THE SOUTH FLORIDA TEA PARTY FOR THE OPPORTUNITY TO ADDRESS THIS GROUP OF HARD-WORKING, INCREDIBLE PEOPLE. IT IS MY GREAT HONOR, BELIEVE ME. [APPLAUSE] OVER THE LAST SIX MONTHS SINCE I STARTED THINKING ABOUT THIS, I HAVE BEEN ASKED SO MUCH ABOUT THE TEA PARTY BY REPORTERS AND A LOT OF DIFFERENT FOLKS. I HAVE COME UP WITH A TRUTHFUL BUT STANDARD ANSWER. THEY ARE GREAT BECAUSE THEY MADE WASHINGTON START THINKING, BOTH DEMOCRATS AND REPUBLICANS.  THEY MADE WASHINGTON START THINKING. I WANT TO THANK YOU ALL. IT IS FANTASTIC. WHEN I WAS ASKED TO DO THIS SPEECH TODAY BY A FRIEND OF MINE, HE SAID IT WOULD BE IN AN AUDITORIUM WITH 250 PEOPLE. WHAT HAPPENED? [CHEERS AND APPLAUSE] WITH ALL OF THE WIND, AT LEAST YOU KNOW IT IS MY REAL HAIR. THE UNITED STATES HAS BECOME THE LAUGHING STOCK AND A WHIPPING POST FOR THE REST OF THE WORLD WHETHER WE LIKE IT OR NOT. WE DO NOT LIKE IT.";
+
+    Model model = new ModelC(inputText, 5);
+    System.out.format("%s%n", model.generateOutput());
+  }
 }
