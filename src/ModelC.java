@@ -35,7 +35,7 @@ public class ModelC implements Model {
       List<Character> list;
       if (!map.containsKey(substr)) list = new ArrayList<Character>();
       else list = map.get(substr);
-      list.add(input.charAt(i + degree + 1));
+      list.add(input.charAt(i + degree));
       map.put(substr, list);
     }
     return map;
