@@ -45,10 +45,13 @@ public class ModelC implements Model {
     Map textMap = generateMap();
     String[] keys = (String[]) textMap.keySet().toArray();
     output = (String) textMap.get(keys[(int) Math.floor(Math.random() * keys.length)]);
+    final int LIMIT = Math.round(input.length() * 1.25);
+
     int i = degree;
     while (textMap.containsKey(output.substring(i - degree, i))) {
       List<Character> charList = (List<Character>) textMap.get(output.substring(i - degree, i));
       output += charList.get((int) Math.floor(Math.random() * charList.size())).toString();
+      if (i == LIMIT) { break; }
       i++;
     }
     return output;
