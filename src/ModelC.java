@@ -7,10 +7,15 @@
    implementation of C. Shannon's n-gram algorithm for
    modeling English text.
 */
+
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.Set;
+import java.lang.Math;
+
+@SuppressWarnings("unchecked")
 
 public class ModelC implements Model {
 
@@ -24,14 +29,23 @@ public class ModelC implements Model {
   }
 
   private Map generateMap() {
-    Map<String, List<Character>> outputMap = new HashMap<String, List<Character>>();
+    Map<String, List<Character>> textMap = new HashMap<String, List<Character>>();
+    return textMap;
   }
 
   public String generateOutput() {
-    Map outputMap = generateMap();
-    
+    Map textMap = generateMap();
+    String[] keys = (String[]) textMap.keySet().toArray();
+    output = (String) textMap.get(keys[(int) Math.floor(Math.random() * keys.length)]);
+    int i = degree;
+    while (textMap.containsKey(output.substring(i - degree, i))) {
+      List<Character> charList = (List<Character>) textMap.get(output.substring(i - degree, i));
+      output += charList.get((int) Math.floor(Math.random() * charList.size())).toString();
+      i++;
+    }
+    return output;
   }
 
-  public String toString() { return String.format("%s", this.output); }
+  public String toString() { return String.format("%s", output); }
 
 }
