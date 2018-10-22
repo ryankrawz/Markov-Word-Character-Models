@@ -31,7 +31,7 @@ public class ModelC implements Model {
   private Map generateMap() {
     Map<String, List<Character>> map = new HashMap<String, List<Character>>();
     for (int i = 0; i + degree < input.length(); i++) {
-      String substr = input.substring(i, i + degree + 1);
+      String substr = input.substring(i, i + degree);
       List<Character> list;
       if (!map.containsKey(substr)) list = new ArrayList<Character>();
       else list = map.get(substr);

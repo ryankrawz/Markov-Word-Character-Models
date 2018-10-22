@@ -27,7 +27,7 @@ public class Shannon {
     Main.setText(this.output, text);
   }
 
-  public void process() { // YOUR CODE HERE
+  public void process() {
     String inputText = getInputText();
     Model markovModel = new ModelC(inputText, degree);
     setOutputText(markovModel.generateOutput());
