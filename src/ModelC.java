@@ -52,12 +52,7 @@ public class ModelC implements Model {
     output = keys[randKeyIndex];
     String substr = output;
     final int LIMIT = (int) Math.round(input.length() * 1.25);
-    String substr = output.substring(output.length() - degree, output.length());
     while (textMap.containsKey(substr) && output.length() <= LIMIT) {
-<<<<<<< HEAD
-=======
-      substr = output.substring(output.length() - degree, output.length());
->>>>>>> d5166ca361409891b7eeebfb6d8cc250eac13d85
       List<Character> charList = textMap.get(substr);
       int randIndex = (int) Math.floor(Math.random() * charList.size());
       if (charList.get(randIndex) == SENTINEL) break;
