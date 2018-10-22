@@ -23,7 +23,18 @@ public class ModelC implements Model {
     this.output = "";
   }
 
-  private Map generateMap() { return null; }
+  private Map generateMap() {
+    Map<String, List<Character>> map = new HashMap<String, List<Character>>();
+    for (int i = 0; i + degree < input.length(); i++) {
+      String substr = input.substring(i, i + degree);
+      List<Character> list;
+      if (!map.containsKey(substr)) list = new ArrayList<Character>();
+      else list = map.get(substr);
+      list.add(input.charAt(i + degree + 1));
+      map.put(substr, list);
+    }
+    return map;
+  }
 
   public String generateOutput() { return null; }
 
