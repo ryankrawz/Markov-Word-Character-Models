@@ -47,11 +47,12 @@ public class ModelC implements Model {
     int randKeyIndex = (int) Math.floor(Math.random() * keys.length);
     output = keys[randKeyIndex];
     final int LIMIT = (int) Math.round(input.length() * 1.25);
+    String substr = output.substring(output.length() - degree, output.length());
     while (textMap.containsKey(substr) && output.length() <= LIMIT) {
-      String substr = output.substring(output.length() - degree, output.length());
       List<Character> charList = textMap.get(substr);
       int randIndex = (int) Math.floor(Math.random() * charList.size());
       output += charList.get(randIndex).toString();
+      substr = output.substring(output.length() - degree, output.length());
     }
     return output;
   }
