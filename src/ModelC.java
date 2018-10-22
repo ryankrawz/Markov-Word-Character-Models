@@ -21,6 +21,7 @@ public class ModelC implements Model {
 
   private String input, output;
   private int degree;
+  private final Character SENTINEL = (char) 0;
 
   public ModelC(String input, int degree) {
     this.input = input;
@@ -33,7 +34,10 @@ public class ModelC implements Model {
     for (int i = 0; i + degree < input.length(); i++) {
       String substr = input.substring(i, i + degree);
       List<Character> list;
-      if (!map.containsKey(substr)) list = new ArrayList<Character>();
+      if (!map.containsKey(substr)) {
+        list = new ArrayList<Character>();
+        list.add(SENTINEL);
+      }
       else list = map.get(substr);
       list.add(input.charAt(i + degree));
       map.put(substr, list);
@@ -46,11 +50,17 @@ public class ModelC implements Model {
     String[] keys = (String[]) textMap.keySet().toArray();
     int randKeyIndex = (int) Math.floor(Math.random() * keys.length);
     output = keys[randKeyIndex];
+    String substr = output;
     final int LIMIT = (int) Math.round(input.length() * 1.25);
     String substr = output.substring(output.length() - degree, output.length());
     while (textMap.containsKey(substr) && output.length() <= LIMIT) {
+<<<<<<< HEAD
+=======
+      substr = output.substring(output.length() - degree, output.length());
+>>>>>>> d5166ca361409891b7eeebfb6d8cc250eac13d85
       List<Character> charList = textMap.get(substr);
       int randIndex = (int) Math.floor(Math.random() * charList.size());
+      if (charList.get(randIndex) == SENTINEL) break;
       output += charList.get(randIndex).toString();
       substr = output.substring(output.length() - degree, output.length());
     }
