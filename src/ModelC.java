@@ -45,7 +45,7 @@ public class ModelC implements Model {
     Map textMap = generateMap();
     String[] keys = (String[]) textMap.keySet().toArray();
     output = (String) textMap.get(keys[(int) Math.floor(Math.random() * keys.length)]);
-    final int LIMIT = Math.round(input.length() * 1.25);
+    final int LIMIT = (int) Math.round(input.length() * 1.25);
 
     int i = degree;
     while (textMap.containsKey(output.substring(i - degree, i))) {
