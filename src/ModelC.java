@@ -23,9 +23,14 @@ public class ModelC implements Model {
     this.output = "";
   }
 
-  private Map generateMap() { return null; }
+  private Map generateMap() {
+    Map<String, List<Character>> outputMap = new HashMap<String, List<Character>>();
+  }
 
-  public String generateOutput() { return null; }
+  public String generateOutput() {
+    Map outputMap = generateMap();
+    
+  }
 
   public String toString() { return String.format("%s", this.output); }
 
