@@ -29,13 +29,7 @@ public class Shannon {
 
   public void process() { // YOUR CODE HERE
     String inputText = getInputText();
-
     Model markovModel = new ModelC(inputText, degree);
-
-    // Dummy code that simply sets the output
-    // to what was read from the input. Replace
-    // the next line with your code.
-    //
-    setOutputText();
+    setOutputText(markovModel.generateOutput());
   }
 }
