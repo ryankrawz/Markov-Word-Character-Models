@@ -6,7 +6,10 @@
    The API for the Model ADT, a part of an implementation
    of C. Shannon's n-gram algorithm for modeling English text.
 */
+
 public interface Model {
+
   String generateOutput();
   String toString();
+
 }

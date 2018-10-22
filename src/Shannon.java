@@ -6,6 +6,7 @@
    This is an implementation of C. Shannon's n-gram algorithm
    for English text.
 */
+
 import javafx.scene.Node;
 
 public class Shannon {
@@ -32,4 +33,5 @@ public class Shannon {
     Model markovModel = new ModelC(inputText, degree);
     setOutputText(markovModel.generateOutput());
   }
+
 }
