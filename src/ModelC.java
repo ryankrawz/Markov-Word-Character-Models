@@ -42,17 +42,16 @@ public class ModelC implements Model {
   }
 
   public String generateOutput() {
-    Map textMap = generateMap();
+    Map<String, List<Character>> textMap = generateMap();
     String[] keys = (String[]) textMap.keySet().toArray();
-    output = (String) textMap.get(keys[(int) Math.floor(Math.random() * keys.length)]);
+    int randKeyIndex = (int) Math.floor(Math.random() * keys.length);
+    output = keys[randKeyIndex];
     final int LIMIT = (int) Math.round(input.length() * 1.25);
-
-    int i = degree;
-    while (textMap.containsKey(output.substring(i - degree, i))) {
-      List<Character> charList = (List<Character>) textMap.get(output.substring(i - degree, i));
-      output += charList.get((int) Math.floor(Math.random() * charList.size())).toString();
-      if (i == LIMIT) { break; }
-      i++;
+    String substr = output.substring(output.length() - degree, output.length());
+    while (textMap.containsKey(substr) && output.length() <= LIMIT) {
+      List<Character> charList = textMap.get(substr);
+      int randIndex = (int) Math.floor(Math.random() * charList.size());
+      output += charList.get(randIndex).toString();
     }
     return output;
   }
