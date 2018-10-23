@@ -1,4 +1,4 @@
-/* file: CharModelC.java
+/* file: ModelC.java
    author: Ryan Krawczyk, Andrew Greenwell
 
    CSCI 1102 Computer Science 2
@@ -17,20 +17,18 @@ import java.lang.Math;
 
 @SuppressWarnings("unchecked")
 
-public class CharModelC implements Model {
+public class ModelC implements Model {
 
   private String input, output;
   private int degree;
-  private Map<String, List<Character>> map;
 
-  public CharModelC(String input, int degree) {
+  public ModelC(String input, int degree) {
     this.input = input;
     this.degree = degree;
     this.output = "";
-    this.map = generateMap(input, degree);
   }
 
-  private static Map generateMap(String input, int degree) {
+  private Map generateMap() {
     Map<String, List<Character>> map = new HashMap<String, List<Character>>();
     for (int i = 0; i <= input.length(); i++) {
       String substr;
