@@ -48,16 +48,17 @@ public class CharModelC implements Model {
   }
 
   public String generateOutput() {
-    String substr = output;
-    while (map.containsKey(substr)) {
-      List<Character> charList = map.get(substr);
+    String key = output;
+    while (map.containsKey(key)) {
+      List<Character> charList = map.get(key);
       int randIndex = (int) Math.floor(Math.random() * charList.size());
-      if (charList.get(randIndex) == Main.SENTINEL) break;
-      output += charList.get(randIndex).toString();
+      Character randChar = charList.get(randIndex);
+      if (randChar == Main.SENTINEL) break;
+      output += randChar.toString();
       if (output.length() - degree < 0)
-        substr = output.substring(0, output.length());
+        key = output.substring(0, output.length());
       else
-        substr = output.substring(output.length() - degree, output.length());
+        key = output.substring(output.length() - degree, output.length());
     }
     return output;
   }
