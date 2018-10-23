@@ -17,6 +17,6 @@ import java.lang.Math;
 
 @SuppressWarnings("unchecked")
 
-public class CharModelC implements Model {
+public class WordModelC implements Model {
 
 }
