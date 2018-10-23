@@ -50,9 +50,9 @@ public class CharModelC implements Model {
   public String generateOutput() {
     String key = output;
     while (map.containsKey(key)) {
-      List<Character> charList = map.get(key);
-      int randIndex = (int) Math.floor(Math.random() * charList.size());
-      Character randChar = charList.get(randIndex);
+      List<Character> valueList = map.get(key);
+      int randIndex = (int) Math.floor(Math.random() * valueList.size());
+      Character randChar = valueList.get(randIndex);
       if (randChar == Main.SENTINEL) break;
       output += randChar.toString();
       if (output.length() - degree < 0)
