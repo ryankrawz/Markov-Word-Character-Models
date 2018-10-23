@@ -33,16 +33,16 @@ public class CharModelC implements Model {
   private static Map generateMap(String input, int degree) {
     Map<String, List<Character>> map = new HashMap<String, List<Character>>();
     for (int i = 0; i <= input.length(); i++) {
-      String substr;
-      if (i == 0)                     substr = "";
-      else if (i < degree)            substr = input.substring(0, i);
-      else                            substr = input.substring(i - degree, i);
-      List<Character> list;
-      if (!map.containsKey(substr))   list = new ArrayList<Character>();
-      else                            list = map.get(substr);
-      if (i == input.length())        list.add(Main.SENTINEL);
-      else                            list.add(input.charAt(i));
-      map.put(substr, list);
+      String key;
+      if (i == 0)                    key = "";
+      else if (i < degree)           key = input.substring(0, i);
+      else                           key = input.substring(i - degree, i);
+      List<Character> valueList;
+      if (!map.containsKey(key))     valueList = new ArrayList<Character>();
+      else                           valueList = map.get(key);
+      if (i == input.length())       valueList.add(Main.SENTINEL);
+      else                           valueList.add(input.charAt(i));
+      map.put(key, valueList);
     }
     return map;
   }
