@@ -35,10 +35,10 @@ public class CharModelC implements Model {
     for (int i = 0; i + degree <= input.length(); i++) {
       String substr = input.substring(i, i + degree);
       List<Character> list;
-      if (!map.containsKey(substr)) list = new ArrayList<Character>();
-      else list = map.get(substr);
-      if (i + degree == input.length()) list.add(Main.SENTINEL); // if we've hit the end of the input, append Main.SENTINEL to the key's value list instead.
-      else list.add(input.charAt(i + degree));
+      if (!map.containsKey(substr)) { list = new ArrayList<Character>(); }
+      else { list = map.get(substr); }
+      if (i + degree == input.length()) { list.add(Main.SENTINEL); } // if we've hit the end of the input, append Main.SENTINEL to the key's value list instead.
+      else { list.add(input.charAt(i + degree)); }
       map.put(substr, list);
     }
     return map;
@@ -54,7 +54,7 @@ public class CharModelC implements Model {
     while (map.containsKey(substr) /* && output.length() <= LIMIT */) {
       List<Character> charList = map.get(substr);
       int randIndex = (int) Math.floor(Math.random() * charList.size());
-      if (charList.get(randIndex) == Main.SENTINEL) break;
+      if (charList.get(randIndex) == Main.SENTINEL) { break; }
       output += charList.get(randIndex).toString();
       substr = output.substring(output.length() - degree, output.length());
     }

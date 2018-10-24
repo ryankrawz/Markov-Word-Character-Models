@@ -19,4 +19,30 @@ import java.lang.Math;
 
 public class WordModelC implements Model {
 
+    private String input, output;
+    private Map<String, List<String>> map;
+
+    public WordModelC(String input) {
+        this.input = input;
+        this.output = "";
+        this.map = generateMap(input);
+    }
+
+    private static Map generateMap(String input) {
+        String[] wordArray = input.split(" ");
+        Map<String, List<String>> map = new HashMap<String, List<String>>();
+        for (int i = 0; i < wordArray.length - 1; i++) {
+            List<String> list;
+            if (!map.containsKey(wordArray[i])) { list = new ArrayList<String>(); }
+            else { list = map.get(wordArray[i]); }
+            if (  )
+        }
+    }
+
+    public String generateOutput() {
+
+    }
+
+    public String toString() { return String.format("%s", output); }
+
 }
