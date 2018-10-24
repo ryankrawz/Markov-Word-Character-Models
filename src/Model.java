@@ -11,5 +11,6 @@ public interface Model {
 
   String generateOutput();
   String toString();
+  void showMap();
 
 }
