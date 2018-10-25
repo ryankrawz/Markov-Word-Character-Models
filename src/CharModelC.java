@@ -66,6 +66,7 @@ public class CharModelC implements Model {
   public String toString() { return String.format("%s", output); }
 
   public void showMap() {
+    System.out.format("%n");
     Object[] keyArray = map.keySet().toArray();
     for (int i = 0; i < keyArray.length; i++) {
       System.out.format("%s: %s%n", keyArray[i], map.get(keyArray[i]));
@@ -76,7 +77,7 @@ public class CharModelC implements Model {
     String inputText = "Hi my name is Andy. I like to write code. This program is written in java.";
     Model model = new CharModelC(inputText, 3);
     model.showMap();
-    System.out.format("%s%n", model.generateOutput());
+    System.out.format("%n%s%n%n", model.generateOutput());
   }
 
 }
