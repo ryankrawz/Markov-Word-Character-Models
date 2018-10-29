@@ -53,9 +53,10 @@ Generates the model itself, which is being represented as a HashMap.
         Map<String, List<String>> map = new HashMap<String, List<String>>();
         for (int i = 0; i <= words.array.length - degree; ++i) {
             StringBuilder key = new StringBuilder(words.array[i]);
-            for (int j = i + 1; j < i + degree; ++j) {
+            for (int j = i + 1; j < i + degree; ++j) { // constructs keys based on degree, separated by spaces
                 key.append(" ").append(words.array[j]);
             }
+            // selects following word from input to add to valueList
             String value = (i + degree < words.array.length) ? words.array[i + degree] : "";
             List<String> valueList;
             if (!map.containsKey(key.toString()))
@@ -79,13 +80,12 @@ manually "thrown" an error message to the user via the output.
     public String generateOutput() {
         if (output != "") return output;
         StringBuilder key = new StringBuilder();
-        for (int i = 0; i < degree; i++) {
+        for (int i = 0; i < degree; i++) { // begins output with degree-sized word string from input
             if (i == 0)  key.append(words.array[i]);
             else         key.append(" ").append(words.array[i]);
         }
         output += key.toString();
         while (map.containsKey(key.toString())) {
-            final int LIMIT = (int) Math.round(words.array.length * 1.5);
             List<String> valueList = map.get(key.toString());
             int randIndex = (int) Math.floor(Math.random() * valueList.size());
             String randWord = valueList.get(randIndex);
