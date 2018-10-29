@@ -121,7 +121,7 @@ public class Main extends Application {
     TextField degree = new TextField("4");
     degree.setStyle(style);
 
-    // The Go button, runs the application.
+    // The Go button, runs the application. 
     //
     Button goButton = new Button("Go");
     goButton.setStyle(style);

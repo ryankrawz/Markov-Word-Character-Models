@@ -6,7 +6,7 @@
    This is an implementation of the Model ADT, a part of an
    implementation of C. Shannon's word-based algorithm for
    modeling English text. This model is built using words
-   instead of individual characters.
+   instead of individual characters. 
 */
 
 import java.util.List;
