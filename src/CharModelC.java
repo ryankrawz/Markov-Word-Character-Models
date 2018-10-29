@@ -14,6 +14,7 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Set;
 import java.lang.Math;
+import java.util.NoSuchElementException;
 
 @SuppressWarnings("unchecked")
 
@@ -30,7 +31,11 @@ public class CharModelC implements Model {
     this.map = generateMap(input, degree);
   }
 
-  private static Map generateMap(String input, int degree) {
+  private Map generateMap(String input, int degree) {
+    if (input.length() <= degree)
+      output = "*** Error: degree too large for given input ***";
+    else if (degree <= 0)
+      output = "*** Error: degree must be > 0 ***";
     Map<String, List<Character>> map = new HashMap<String, List<Character>>();
     for (int i = 0; i <= input.length(); i++) {
       String key;
@@ -48,6 +53,7 @@ public class CharModelC implements Model {
   }
 
   public String generateOutput() {
+    if (output != "") return output;
     String key = output;
     while (map.containsKey(key)) {
       List<Character> valueList = map.get(key);
@@ -63,21 +69,25 @@ public class CharModelC implements Model {
     return output;
   }
 
-  public String toString() { return String.format("%s", output); }
+  public String showOutput() { return String.format("%s", output); }
 
-  public void showMap() {
+  public String showMap() {
     System.out.format("%n");
     Object[] keyArray = map.keySet().toArray();
+    StringBuilder str = new StringBuilder();
     for (int i = 0; i < keyArray.length; i++) {
-      System.out.format("%s: %s%n", keyArray[i], map.get(keyArray[i]));
+      str.append(String.format("%s: %s%n", keyArray[i], map.get(keyArray[i])));
     }
+    str.append("%n");
+    return str.toString();
   }
 
   public static void main(String[] args) {
-    String inputText = "Hi my name is Andy. I like to write code. This program is written in java.";
-    Model model = new CharModelC(inputText, 3);
-    model.showMap();
-    System.out.format("%n%s%n%n", model.generateOutput());
+    String inputText = "Hi my name is Andy. I like to write code. "
+                     + "This program is written in java.";
+    Model model = new CharModelC(inputText, 100);
+    System.out.format(model.showMap());
+    System.out.format("%s%n%n", model.generateOutput());
   }
-
+  
 }

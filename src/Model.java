@@ -10,7 +10,7 @@
 public interface Model {
 
   String generateOutput();
-  String toString();
-  void showMap();
+  String showOutput();
+  String showMap();
 
 }

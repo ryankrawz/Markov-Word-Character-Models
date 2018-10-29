@@ -30,7 +30,7 @@ public class Shannon {
 
   public void process() {
     String inputText = getInputText();
-    Model markovModel = new CharModelC(inputText, degree);
+    Model markovModel = new WordModelC(inputText, degree);
     setOutputText(markovModel.generateOutput());
   }
 
