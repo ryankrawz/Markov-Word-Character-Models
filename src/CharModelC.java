@@ -62,7 +62,7 @@ then appended to the corresponding list.
 Samples the model being stored in the class variable "map".
 Seeds the sampling by starting with the current output as the first key.
 If the "output" class variable is not initially empty, this means we have
-manually "thrown" an error message to the user via the output.
+manually "thrown" an error message to the user via the output. 
 */
   public String generateOutput() {
     if (output != "") return output;

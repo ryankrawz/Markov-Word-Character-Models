@@ -4,7 +4,7 @@
    CSCI 1102 Computer Science 2
 
    This is an implementation of C. Shannon's n-gram algorithm
-   for English text.
+   for English text. 
 */
 
 import javafx.scene.Node;

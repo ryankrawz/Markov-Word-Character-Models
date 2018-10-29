@@ -12,5 +12,5 @@ public interface Model {
   String generateOutput();
   String showOutput();
   String showModel();
-
+ 
 }
