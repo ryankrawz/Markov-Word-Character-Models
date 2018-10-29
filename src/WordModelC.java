@@ -42,6 +42,9 @@ public class WordModelC implements Model {
         this.map = generateMap(input, degree);
     }
 
+/*
+Generates the model itself, which is being represented as a HashMap.
+*/
     private Map generateMap(String input, int degree) {
       if (words.array.length <= degree)
         output = "*** Error: degree too large for given input ***";
@@ -67,6 +70,12 @@ public class WordModelC implements Model {
         return map;
     }
 
+/*
+Samples the model being stored in the class variable "map".
+Seeds the sampling by starting with the first degree words as the first key.
+If the "output" class variable is not initially empty, this means we have
+manually "thrown" an error message to the user via the output.
+*/
     public String generateOutput() {
         if (output != "") return output;
         StringBuilder key = new StringBuilder();
