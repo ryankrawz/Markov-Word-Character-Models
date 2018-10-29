@@ -99,7 +99,7 @@ manually "thrown" an error message to the user via the output.
   public static void main(String[] args) {
     String inputText = "Hi my name is Andy. I like to write code. "
                      + "This program is written in java.";
-    Model model = new CharModelC(inputText, 100);
+    Model model = new CharModelC(inputText, 2);
     System.out.format(model.showModel());
     System.out.format("%s%n%n", model.generateOutput());
   }
