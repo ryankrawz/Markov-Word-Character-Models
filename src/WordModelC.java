@@ -95,7 +95,7 @@ public class WordModelC implements Model {
 
     public String showOutput() { return String.format("%s", output); }
 
-    public String showMap() {
+    public String showModel() {
       System.out.format("%n");
       Object[] keyArray = map.keySet().toArray();
       StringBuilder str = new StringBuilder();
