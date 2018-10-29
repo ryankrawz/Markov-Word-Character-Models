@@ -109,7 +109,7 @@ public class WordModelC implements Model {
       String inputText = "Hi my name is Andy. I like to write code. "
                        + "This program is written in java.";
         Model model = new WordModelC(inputText, 1);
-        System.out.format(model.showMap());
+        System.out.format(model.showModel());
         System.out.format("%s%n%n", model.generateOutput());
     }
 
