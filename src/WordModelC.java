@@ -95,6 +95,7 @@ public class WordModelC implements Model {
 
     public String showOutput() { return String.format("%s", output); }
 
+// returns a string of all keys from the model with their corresponding values
     public String showModel() {
       System.out.format("%n");
       Object[] keyArray = map.keySet().toArray();
@@ -105,6 +106,7 @@ public class WordModelC implements Model {
       return str.toString();
     }
 
+// unit testing
     public static void main(String[] args) {
       String inputText = "Hi my name is Andy. I like to write code. "
                        + "This program is written in java.";
